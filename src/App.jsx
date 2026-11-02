@@ -49,20 +49,17 @@ export default function App() {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [error, setError] = useState(null);
 
-  // Keyboard shortcut '/' to trigger search
+  // Keyboard shortcut: Ctrl + K (or Cmd + K on macOS) to trigger champion search
   useEffect(() => {
     function handleKeyDown(e) {
-      if (e.key === '/' && !searchModalOpen && !searchBModalOpen) {
-        const tagName = document.activeElement?.tagName;
-        if (tagName !== 'INPUT' && tagName !== 'TEXTAREA') {
-          e.preventDefault();
-          setSearchModalOpen(true);
-        }
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setSearchModalOpen(prev => !prev);
       }
     }
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [searchModalOpen, searchBModalOpen]);
+  }, []);
 
   // Initial App Load
   const initApp = useCallback(async (force = false) => {
@@ -147,8 +144,8 @@ export default function App() {
         setActiveTab={setActiveTab}
       />
 
-      {/* Main App Container */}
-      <main className="flex-1 max-w-[1000px] w-full mx-auto px-4 sm:px-6 py-3">
+      {/* Main App Container - Max Width 1200px */}
+      <main className="flex-1 max-w-[1200px] w-full mx-auto px-4 sm:px-6 py-3">
         
         {/* Loading State */}
         {isLoading && (
@@ -200,7 +197,7 @@ export default function App() {
                 />
               </Suspense>
             ) : (
-              /* Ultra-compact Dashboard (fits 1000px height / 1080p monitors) */
+              /* Compact Dashboard */
               <div className="space-y-2">
                 
                 {/* Compact Champion Banner */}
@@ -300,7 +297,7 @@ export default function App() {
 
       </main>
 
-      {/* Footer */}
+      {/* Footer - Max Width 1200px */}
       <Footer patch={patch} />
 
       {/* Primary Champion Search Modal */}

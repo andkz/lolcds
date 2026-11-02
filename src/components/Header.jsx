@@ -15,7 +15,7 @@ export default function Header({
 }) {
   return (
     <header className="border-b border-border/80 bg-background/90 backdrop-blur-md sticky top-0 z-40 transition-colors">
-      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 h-12 flex items-center justify-between">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 h-12 flex items-center justify-between">
         
         {/* Brand & Tabs */}
         <div className="flex items-center gap-4">
@@ -62,7 +62,7 @@ export default function Header({
 
         {/* Right Controls */}
         <div className="flex items-center gap-2">
-          {/* Quick Search Shortcut Trigger */}
+          {/* Quick Search Shortcut Trigger with Ctrl+K */}
           <Button
             variant="outline"
             size="xs"
@@ -72,7 +72,7 @@ export default function Header({
             <Search className="w-3 h-3" />
             <span>Search champ</span>
             <kbd className="px-1.5 py-0.5 text-[10px] bg-background/80 border border-border rounded text-muted-foreground font-mono">
-              /
+              Ctrl+K
             </kbd>
           </Button>
 

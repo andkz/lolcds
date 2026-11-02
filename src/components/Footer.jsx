@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 export default function Footer({ patch }) {
   return (
     <footer className="mt-8 border-t border-border/80 bg-background/95 py-5 text-xs text-muted-foreground">
-      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
         
         {/* Left: Branding & Disclaimer */}
         <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3 text-center sm:text-left">
