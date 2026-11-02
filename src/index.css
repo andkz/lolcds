@@ -92,17 +92,24 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom sleek scrollbar */
+/* Custom sleek dark scrollbar across entire app and all containers */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #232733 #08090c;
+}
+
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
   background: #08090c;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb {
   background: #232733;
   border-radius: 9999px;
+  border: 1px solid #141722;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #3b4255;

@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef, useMemo, useDeferredValue } from 'react';
-import { Search, X, Users, CornerDownLeft, Sparkles } from 'lucide-react';
+import { Search, X, Users, CornerDownLeft } from 'lucide-react';
 import { getChampionIconUrl } from '../services/riotApi';
 import { CHAMPION_ROLES, LANE_ROLES } from '../data/championRoles';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 
 export default function ChampionSearchModal({ 
   isOpen, 
@@ -97,7 +96,7 @@ export default function ChampionSearchModal({
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent 
-        className="max-w-[1000px] w-[95vw] bg-card border-border text-foreground p-0 overflow-hidden shadow-2xl rounded-2xl gap-0"
+        className="w-[95vw] sm:max-w-[1000px] max-w-[1000px] bg-card border-border text-foreground p-0 overflow-hidden shadow-2xl rounded-2xl gap-0"
         onKeyDown={handleKeyDown}
       >
         <DialogHeader className="sr-only">
@@ -126,7 +125,7 @@ export default function ChampionSearchModal({
               <X className="w-4 h-4" />
             </Button>
           )}
-          <div className="hidden sm:flex items-center gap-1.5 shrink-0">
+          <div className="hidden sm:flex items-center gap-1.5 shrink-0 pr-8">
             <kbd className="px-2 py-1 text-xs bg-secondary/80 border border-border rounded text-muted-foreground font-mono">
               Ctrl+K
             </kbd>
@@ -169,8 +168,8 @@ export default function ChampionSearchModal({
           </div>
         </div>
 
-        {/* Champions Grid List - Expanded to 1000px modal */}
-        <div className="p-4 max-h-[520px] overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 scrollbar-thin">
+        {/* Champions Grid List - Full 1000px Width with sleek Dark Mode Scrollbar */}
+        <div className="p-4 max-h-[560px] overflow-y-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5">
           {filtered.length === 0 ? (
             <div className="col-span-full py-16 text-center text-muted-foreground flex flex-col items-center justify-center">
               <Users className="w-10 h-10 text-muted-foreground/30 mb-2" />
